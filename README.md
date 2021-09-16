@@ -1,1 +1,2 @@
 # LocationSearch
+Team Magnita Project 
