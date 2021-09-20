@@ -1,10 +1,13 @@
+package main;
+
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.Arrays;
 
-public class security {
+public class Security {
 
     private static byte[] salting(){
         SecureRandom random = new SecureRandom();
@@ -13,18 +16,12 @@ public class security {
         return salt;
     }
 
-    private static byte[] getSHA(String input) throws NoSuchAlgorithmException
-    {
-        // Static getInstance method is called with hashing SHA
-        MessageDigest md = MessageDigest.getInstance("SHA-256");
-
-        // digest() method called
-        // to calculate message digest of an input
-        // and return array of byte
-
-        System.out.println(md.getAlgorithm());
-
-        return md.digest(input.getBytes(StandardCharsets.UTF_8));
+    private static MessageDigest makeHasher() {
+        try {
+            return MessageDigest.getInstance("SHA-256");
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public static String toHexString(byte[] hash)
@@ -43,23 +40,23 @@ public class security {
 
         return hexString.toString();
     }
-    public static void createPassword(String password) throws NoSuchAlgorithmException {
+    public static PasswordParams createPassword(String password) {
         // Generate salt
         byte[] salt = salting();
-        String string_salt = toHexString(salt);
-        String saltedPassword = string_salt + password;
-        byte[] result = getSHA(saltedPassword);
+        byte[] pass = password.getBytes();
+
+        MessageDigest md = Security.makeHasher();
+        md.update(salt);
+        byte[] hash = md.digest(pass);
+        return new PasswordParams(hash, salt);
 
         //TODO: Store hashed password to google storage.
     }
-    public static boolean checkPassword(byte[] password, byte[] password2){
-
-        if(password == password2){
-            return true;
-        }
-        else{
-            return false;
-        }
+    public static boolean checkPassword(PasswordParams params, String password){
+        MessageDigest md = Security.makeHasher();
+        md.update(params.salt);
+        byte[] hashedPassword = md.digest(password.getBytes());
+        return Arrays.equals(hashedPassword, params.hash);
 
     }
 
