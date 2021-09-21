@@ -4,9 +4,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
-public class security {
+public class Security {
 
-    private static byte[] salting(){
+    private static byte[] getSalt(){
         SecureRandom random = new SecureRandom();
         byte[] salt = new byte[16];
         random.nextBytes(salt);
@@ -21,8 +21,6 @@ public class security {
         // digest() method called
         // to calculate message digest of an input
         // and return array of byte
-
-        System.out.println(md.getAlgorithm());
 
         return md.digest(input.getBytes(StandardCharsets.UTF_8));
     }
@@ -43,12 +41,18 @@ public class security {
 
         return hexString.toString();
     }
-    public static void createPassword(String password) throws NoSuchAlgorithmException {
+    public static byte[] createPassword(String password) throws NoSuchAlgorithmException {
         // Generate salt
-        byte[] salt = salting();
+        byte[] salt = getSalt();
         String string_salt = toHexString(salt);
         String saltedPassword = string_salt + password;
-        byte[] result = getSHA(saltedPassword);
+        try {
+            byte[] result = getSHA(saltedPassword);
+            return result;
+        } catch(Exception e) {
+            throw new NoSuchAlgorithmException("The password could not be created due to an issue with the encryption algorithm");
+        }
+
 
         //TODO: Store hashed password to google storage.
     }
