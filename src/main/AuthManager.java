@@ -10,7 +10,6 @@ public class AuthManager implements AuthManagerInterface {
 
     private AuthManager() { }
 
-
     @Override
     public boolean signIn(String email, String password) {
         PasswordParams params = fetchPasswordParams(email);
