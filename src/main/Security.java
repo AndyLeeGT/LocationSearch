@@ -48,9 +48,8 @@ public class Security {
         md.update(salt);
         byte[] hash = md.digest(pass);
         return new PasswordParams(hash, salt);
-
-        //TODO: Store hashed password to google storage.
     }
+
     public static boolean checkPassword(PasswordParams params, String password){
         MessageDigest md = Security.makeHasher();
         md.update(params.getSalt());
