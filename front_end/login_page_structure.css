@@ -1,0 +1,42 @@
+
+h1{text-align: center;}
+
+form{
+    border:3px solid #938f8f;
+    text-align: center;
+}
+body{
+  height: 100%;
+  margin: 0;
+
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding:10px 20px;
+    margin:5px 0;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+input[type=submit]{
+  background-color:#04AA6D;
+  border-radius: 25px;
+  cursor: pointer;
+  border: none;
+  width: 5%;
+  text-align: center;
+} 
+
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  
+
