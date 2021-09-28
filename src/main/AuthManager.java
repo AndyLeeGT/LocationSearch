@@ -1,5 +1,9 @@
 package main;
 
+import com.google.cloud.datastore.*;
+
+import java.nio.charset.StandardCharsets;
+
 interface AuthManagerInterface {
     boolean signIn(String email, String password);
     boolean signUp(String email, String password);
@@ -7,6 +11,8 @@ interface AuthManagerInterface {
 
 public class AuthManager implements AuthManagerInterface {
     public static AuthManager shared = new AuthManager();
+    private Datastore db = GDSFactory.getGDS();
+    KeyFactory keyFactory = db.newKeyFactory().setKind("User");
 
     private AuthManager() { }
 
@@ -20,11 +26,23 @@ public class AuthManager implements AuthManagerInterface {
     @Override
     public boolean signUp(String email, String password) {
         PasswordParams params = Security.createPassword(password);
-        // TODO: Create new user in the database
-        return true;
+
+        // Store to GDS
+        Key key = keyFactory.newKey(email);
+        Entity entity = Entity.newBuilder(key)
+                .set("password", String.valueOf(params.getHash()))
+                .set("salt", String.valueOf(params.getSalt()))
+                .build();
+        if (db.put(entity) != null) {
+            return true;
+        }
+        return false;
     }
 
     private PasswordParams fetchPasswordParams(String email) {
-        return new PasswordParams(new byte[2], new byte[2]);
+        Entity userEntity = db.get(keyFactory.newKey(email));
+        String hash = userEntity.getProperties().get("password").toString();
+        String salt = userEntity.getProperties().get("salt").toString();
+        return new PasswordParams(hash.getBytes(), salt.getBytes());
     }
 }
