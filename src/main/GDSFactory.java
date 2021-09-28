@@ -3,9 +3,10 @@ import com.google.cloud.datastore.Datastore;
 import com.google.cloud.datastore.DatastoreOptions;
 
 public class GDSFactory {
-    static Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+    // GCS will fetch Application Default Credentials from the environment
+    static DatastoreOptions dsOptions = DatastoreOptions.getDefaultInstance();
 
     public static Datastore getGDS() {
-        return datastore;
+        return dsOptions.getService();
     }
 }
