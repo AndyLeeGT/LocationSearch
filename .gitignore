@@ -5,3 +5,5 @@
 *.ipr
 *.class
 .project
+.classpath
+*.prefs
