@@ -1,5 +1,6 @@
 package main;
 
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,7 +10,7 @@ import retrofit2.http.GET;
 @RestController
 
 public class UserAuthController {
-    private AuthManager authManager;
+    private AuthManager authManager = new AuthManager();
 
     @PutMapping("/users")
     public boolean putNewUser(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password ) {

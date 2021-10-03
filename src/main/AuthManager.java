@@ -10,11 +10,8 @@ interface AuthManagerInterface {
 }
 
 public class AuthManager implements AuthManagerInterface {
-    public static AuthManager shared = new AuthManager();
     private Datastore db = GDSFactory.getGDS();
     KeyFactory keyFactory = db.newKeyFactory().setKind("User");
-
-    private AuthManager() { }
 
     @Override
     public boolean signIn(String email, String password) {
