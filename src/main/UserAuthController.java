@@ -10,7 +10,15 @@ import retrofit2.http.GET;
 @RestController
 
 public class UserAuthController {
-    private AuthManager authManager = new AuthManager();
+    private AuthManager authManager;
+
+    public UserAuthController() {
+        try {
+            authManager = new AuthManager();
+        } catch (Exception e) {
+            authManager = null;
+        }
+    }
 
     @PutMapping("/users")
     public boolean putNewUser(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password ) {
