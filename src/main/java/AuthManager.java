@@ -18,7 +18,10 @@ public class AuthManager implements AuthManagerInterface {
 
     @Override
     public boolean signIn(String email, String password) {
-        PasswordParams params = fetchPasswordParams(email);
+        PasswordParams params = fetchPasswordParams(email);]
+        if (params == null) {
+            return false;
+        }
         boolean passwordMatches = Security.checkPassword(params, password);
         return passwordMatches;
     }
@@ -41,8 +44,12 @@ public class AuthManager implements AuthManagerInterface {
 
     private PasswordParams fetchPasswordParams(String email) {
         Entity userEntity = db.get(keyFactory.newKey(email));
-        String hash = userEntity.getProperties().get("password").toString();
-        String salt = userEntity.getProperties().get("salt").toString();
+        try {
+            String hash = userEntity.getProperties().get("password").toString();
+            String salt = userEntity.getProperties().get("salt").toString();
+        } catch (Exception e) {
+            return null;
+        }
         return new PasswordParams(hash.getBytes(), salt.getBytes());
     }
 }
