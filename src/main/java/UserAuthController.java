@@ -9,7 +9,11 @@ public class UserAuthController {
     private AuthManager authManager;
 
     public UserAuthController() {
-        authManager = new AuthManager();
+        try {
+            authManager = new AuthManager();
+        } catch (Exception e) {
+            authManager = null;
+        }
     }
 
     @PutMapping("/users")

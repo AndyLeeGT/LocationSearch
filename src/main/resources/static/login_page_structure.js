@@ -3,7 +3,7 @@ loginInput.onsubmit = function(){submitFunction()};
 
 function submitFunction() {
     $.ajax({
-        url: '',
+        url: 'localhost:8080/users',
         type: 'GET',
         dataType: 'json',
         data: {username: loginInput.getElementById("username").value,
@@ -11,6 +11,9 @@ function submitFunction() {
         timeout: 2500,
         success: function(result){
             console.log('Completed with success and data: ', result);
+        },
+        error: function(result){
+            console.log('Error with message: ', result);
         }
     });
 
