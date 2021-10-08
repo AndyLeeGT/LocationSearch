@@ -2,6 +2,8 @@ package main.java;
 
 import com.google.cloud.datastore.*;
 
+import java.util.Base64;
+
 interface AuthManagerInterface {
     boolean signIn(String email, String password);
     boolean signUp(String email, String password);
@@ -33,8 +35,8 @@ public class AuthManager implements AuthManagerInterface {
         // Store to GDS
         Key key = keyFactory.newKey(email);
         Entity entity = Entity.newBuilder(key)
-                .set("password", String.valueOf(params.getHash()))
-                .set("salt", String.valueOf(params.getSalt()))
+                .set("password", Base64.getEncoder().encodeToString(params.getHash()))
+                .set("salt", Base64.getEncoder().encodeToString(params.getSalt()))
                 .build();
         if (db.put(entity) != null) {
             return true;
@@ -45,9 +47,9 @@ public class AuthManager implements AuthManagerInterface {
     private PasswordParams fetchPasswordParams(String email) {
         Entity userEntity = db.get(keyFactory.newKey(email));
         try {
-            String hash = userEntity.getProperties().get("password").toString();
-            String salt = userEntity.getProperties().get("salt").toString();
-            return new PasswordParams(hash.getBytes(), salt.getBytes());
+            String hash = userEntity.getProperties().get("password").get().toString();
+            String salt = userEntity.getProperties().get("salt").get().toString();
+            return new PasswordParams(Base64.getDecoder().decode(hash), Base64.getDecoder().decode(salt));
         } catch (Exception e) {
             return null;
         }

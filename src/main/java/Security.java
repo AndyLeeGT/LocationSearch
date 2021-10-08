@@ -13,10 +13,20 @@ public class Security {
         random.nextBytes(salt);
         return salt;
     }
+    private static MessageDigest md = makeInitialHash();
+    private static MessageDigest makeInitialHash() {
+        try {
+            return MessageDigest.getInstance("SHA-256");
+        } catch (Exception e) {
+            System.out.println(e.getLocalizedMessage());
+            return null;
+        }
+    }
 
     private static MessageDigest makeHasher() {
         try {
-            return MessageDigest.getInstance("SHA-256");
+            md.reset();
+            return md;
         } catch (Exception e) {
             return null;
         }
