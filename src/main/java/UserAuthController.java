@@ -15,6 +15,7 @@ public class UserAuthController {
         try {
             authManager = new AuthManager();
         } catch (Exception e) {
+            System.out.println("[WARN]: AuthManager could not access Google Datastore, will be null.");
             authManager = null;
         }
     }

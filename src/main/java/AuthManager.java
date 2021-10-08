@@ -49,6 +49,7 @@ public class AuthManager implements AuthManagerInterface {
             String salt = userEntity.getProperties().get("salt").toString();
             return new PasswordParams(hash.getBytes(), salt.getBytes());
         } catch (Exception e) {
+            System.out.println("[WARN]: Could not find a user with this username.");
             return null;
         }
     }
