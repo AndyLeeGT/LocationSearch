@@ -14,11 +14,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 @RestController
 public class InterestingPlacesController {
-
-    @GetMapping("/")
-    public String TestScreen() {
-        return "Welcome to this app!";
-    }
+//    @GetMapping("/")
+//    public String TestScreen() {
+//        return "Welcome to this app!";
+//    }
 
     @GetMapping("/places")
     public List<InterestingPlace> findPlaces(@RequestParam(value = "lat") String lat, @RequestParam(value = "lon") String lon) {
