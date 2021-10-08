@@ -1,8 +1,6 @@
-package main;
+package main.java;
 
 import com.google.cloud.datastore.*;
-
-import java.nio.charset.StandardCharsets;
 
 interface AuthManagerInterface {
     boolean signIn(String email, String password);

@@ -1,6 +1,6 @@
 package tests;
 
-import main.Security;
+import main.java.Security;
 import org.junit.jupiter.api.Test;
 
 import java.security.NoSuchAlgorithmException;

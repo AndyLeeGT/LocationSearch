@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.LocationSearch</groupId>
-    <artifactId>locationSearch</artifactId>
+    <artifactId>LocationSearch</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <parent>
@@ -57,6 +57,21 @@
                 <configuration>
                     <version>1</version>
                     <projectId>GCLOUD_CONFIG</projectId>
+                </configuration>
+            </plugin>
+            <plugin>
+                <!-- Build an executable JAR -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>src/</classpathPrefix>
+                            <mainClass>main.java.InterestingPlacesApp</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>
