@@ -1,0 +1,23 @@
+{
+  "name": "locationsearch",
+  "version": "1.0.0",
+  "description": "LocationSearch WebApp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndyLeeGT/LocationSearch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndyLeeGT/LocationSearch/issues"
+  },
+  "homepage": "https://github.com/AndyLeeGT/LocationSearch#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "joi": "^17.4.2"
+  }
+}

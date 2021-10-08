@@ -9,21 +9,16 @@ public class UserAuthController {
     private AuthManager authManager;
 
     public UserAuthController() {
-        try {
-            authManager = new AuthManager();
-        } catch (Exception e) {
-            System.out.println("[WARN]: AuthManager could not access Google Datastore, will be null.");
-            authManager = null;
-        }
+        authManager = new AuthManager();
     }
 
     @PutMapping("/users")
-    public boolean putNewUser(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password ) {
+    public boolean putNewUser(@RequestParam(value = "username") String username, @RequestBody String password ) {
         return authManager.signUp(username, password);
     }
 
     @GetMapping("/users")
-    public boolean validateUser(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password) {
+    public boolean validateUser(@RequestParam(value = "username") String username, @RequestBody String password ) {
         return authManager.signIn(username, password);
     }
 }
