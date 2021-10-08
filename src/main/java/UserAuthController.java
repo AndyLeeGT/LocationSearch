@@ -1,10 +1,7 @@
 package main.java;
 
 import main.java.AuthManager;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 
@@ -15,6 +12,7 @@ public class UserAuthController {
         try {
             authManager = new AuthManager();
         } catch (Exception e) {
+            System.out.println("[WARN]: AuthManager could not access Google Datastore, will be null.");
             authManager = null;
         }
     }
