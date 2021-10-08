@@ -45,8 +45,8 @@ public class AuthManager implements AuthManagerInterface {
     private PasswordParams fetchPasswordParams(String email) {
         Entity userEntity = db.get(keyFactory.newKey(email));
         try {
-            String hash = userEntity.getProperties().get("password").toString();
-            String salt = userEntity.getProperties().get("salt").toString();
+            String hash = userEntity.getProperties().get("password").get().toString();
+            String salt = userEntity.getProperties().get("salt").get().toString();
             return new PasswordParams(hash.getBytes(), salt.getBytes());
         } catch (Exception e) {
             System.out.println("[WARN]: Could not find a user with this username.");
