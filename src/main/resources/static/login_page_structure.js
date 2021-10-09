@@ -6,8 +6,7 @@ function submitFunction() {
         url: 'localhost:8080/users',
         type: 'GET',
         dataType: 'json',
-        data: {username: loginInput.getElementById("username").value,
-               password: loginInput.getElementsById("password").value},
+        data: {password: loginInput.getElementsById("password").val()},
         timeout: 2500,
         success: function(result){
             console.log('Completed with success and data: ', result);
@@ -16,6 +15,5 @@ function submitFunction() {
             console.log('Error with message: ', result);
         }
     });
-
 }
 

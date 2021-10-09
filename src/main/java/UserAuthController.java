@@ -1,6 +1,5 @@
 package main.java;
 
-import main.java.AuthManager;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,17 +11,18 @@ public class UserAuthController {
         try {
             authManager = new AuthManager();
         } catch (Exception e) {
+            System.out.println("[WARN]: AuthManager failed to fetch valid projectID for Datastore.");
             authManager = null;
         }
     }
 
     @PutMapping("/users")
-    public boolean putNewUser(@RequestParam(value = "username") String username, @RequestBody String password ) {
+    public boolean putNewUser(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password ) {
         return authManager.signUp(username, password);
     }
 
     @GetMapping("/users")
-    public boolean validateUser(@RequestParam(value = "username") String username, @RequestBody String password ) {
+    public boolean validateUser(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password ) {
         return authManager.signIn(username, password);
     }
 }
