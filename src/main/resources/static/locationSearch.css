@@ -1,1 +1,60 @@
-/*do it once the database is implemented*/
+/*Reset all the functionality*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+h1{
+    font-family: bold Arial, Helvetica, sans-serif;
+    font-size: 25px;  
+    color: #000;
+    text-align: center;
+  }
+  body{
+    text-align: center;
+    margin:  auto;
+    font-family: bold Arial, Helvetica, sans-serif;
+    font-size: 15px;  
+    color: #000;
+    background-image: url(buzz_transparent.png);
+    /*move image back to map or table*/
+    z-index: -2;
+
+  }
+ 
+  input[type="submit"]{
+    padding: 10px 25px;
+    font-size: 12px;
+    margin: 5px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #cabe87;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 9px rgb(160, 159, 159);
+  }
+  input[type="submit"]:hover{
+    background-color: #777553
+  }
+  input[type="submit"]:active {
+    background-color: #777553;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  #logout{
+      text-align: right;
+  }
