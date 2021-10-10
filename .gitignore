@@ -8,4 +8,5 @@
 .classpath
 *.prefs
 target/
+node_modules/
 
