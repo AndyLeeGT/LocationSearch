@@ -17,12 +17,12 @@ public class UserAuthController {
     }
 
     @PutMapping("/users")
-    public boolean putNewUser(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password ) {
+    public boolean putNewUser(@RequestParam(value = "username") String username, @RequestBody String password ) {
         return authManager.signUp(username, password);
     }
 
     @GetMapping("/users")
-    public boolean validateUser(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password ) {
+    public boolean validateUser(@RequestParam(value = "username") String username, @RequestBody String password ) {
         return authManager.signIn(username, password);
     }
 }

@@ -1,12 +1,14 @@
 $(document).ready(function() {
-    
-    $('submitbutton').click(function() {
-
+    $('#submitbutton').click(function() {
+        var username = $("#username").val();
+        var password = $("#password").val();
+        var JSONdata = { "password": password };
         $.ajax({
-            url: 'https://directed-post-326819.uc.r.appspot.com/users?username=' + $("username").val() + "&password=" 
-            + $("password").val(),
+            url: 'https://directed-post-326819.uc.r.appspot.com/users?username=' + username,
             type: 'GET',
+            contentType: 'application/json',
             dataType: 'json',
+            data: JSONdata,
             timeout: 2500,
             success: function(result){
                 console.log('Completed with success and data: ', result);
