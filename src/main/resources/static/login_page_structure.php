@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,7 +21,7 @@
     <!-- login functionality-->
     <div class= "log_in_class">
         <section id = "log_in_content">    
-            <form action="log_in_function">
+            <form method = "$POST"action= "login.php">
             <h1> LOGIN PAGE </h1>
             <!-- UserName contents-->
             <div id = "log_in_userName">
@@ -44,10 +45,10 @@
 
             <a href="create_account.html">Need account? </a>
             </div>
-            
             </form>
         </section>
     </div>
+
     <script src="login_page_strucutre.js"></script>       
 </body>
 </html>
