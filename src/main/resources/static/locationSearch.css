@@ -58,3 +58,8 @@ h1{
   #logout{
       text-align: right;
   }
+  #mapid {
+    height:400px; 
+    width: 400px;
+  }
+  
