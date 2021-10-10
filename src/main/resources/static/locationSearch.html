@@ -6,11 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>locationSearch page</title>
+    <link rel = "stylesheet" href= "locationSearch.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+     crossorigin=""></script>
 </head>
 <body>
-    <h1> LOCATION SEARCH MAIN PAGE</h1>
+    <h1> Select a Search Area</h1>
+    <div>
+        Latitude: <input type = "text" placeholder="optional" id = "latitude" name = "latitude"/>
+        Longitude: <input type = "text" placeholder="optional" id = "longitude" name = "longitude"/>
+        Search Radius: <input type = "text" placeholder="optional" id = "searchRadius" name = "searchRadius"><br>
+        
+        <input type = "submit" value = "Find a Place!" id="radiusButton" onclick= "optionalSearch()"> <br>
+        Search Results<br>
+        <!--insert table and map below-->
+        <!--some code here--> 
+    </div>
 
-
+    <div id="mapid"></div>
+    <script>
+        const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
+        const tileUrl = 'https://tile.openstreetmap.org/${z}/${x}/${y}.png';
+        const tiles = L.tileLayer(tileUrl, {attribution});
+        tiles.addTo(mapid);
+    </script>
     
+
+
+    <div id = "logout"> 
+        <input type="submit" value = "Log out" id = "logoutButton">
+    </div>
+
+    <script src="locationSearch.js"></script>
 </body>
 </html>
