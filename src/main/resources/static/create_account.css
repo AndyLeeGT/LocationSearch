@@ -37,12 +37,12 @@ body{
   position: relative;
   font: arial;
 }
-.log_in_class{
+.create_class{
   margin: 30px auto; 
   position: relative; 
   width: 1000px;
 }
-#log_in_content{
+#create_content{
   margin: 0 auto;
   padding: 25px;
   position: relative;
@@ -50,8 +50,8 @@ body{
   width: 200px;
 }
 
-#log_in_content:after,
-#log_in_content:before {
+#create_content:after,
+#create_content:before {
 	background: #ffffff;
 	border: 1px solid #262829;
 	content: "";
@@ -61,32 +61,32 @@ body{
 	position: absolute;
 	width: 100%;
 }
-#log_in_content:after {
+#create_content:after {
 	
 	transform: rotate(0deg);
 	top: 0;
 	z-index: -1;
 }
-#log_in_content:before {
+#create_content:before {
 	transform: rotate(-2deg);
 	top: 0;
 	z-index: -2;
 }
-#log_in_content h1{
+#create_content h1{
   color: #7E7E7E;
 	font: bold 25px Helvetica, Arial, sans-serif;
 	letter-spacing: -0.05em;
 	line-height: 20px;
 	margin: 30px auto;
 }
-#log_in_content form div a {
+#create_content form div a {
 	color: #004a80;
     float: right;
     font-size: 12px;
     margin: 30px 15px 0 0;
     text-decoration: underline;
 }
-#log_in_content form input[type="submit"]{
+#create_content form input[type="submit"]{
   padding: 10px 25px;
   font-size: 12px;
   margin: 5px;
@@ -99,10 +99,10 @@ body{
   border-radius: 30px;
   box-shadow: 0 9px rgb(160, 159, 159);
 }
-#log_in_content form input[type="submit"]:hover{
+#create_content form input[type="submit"]:hover{
   background-color: #777553
 }
-#log_in_content form input[type="submit"]:active {
+#create_content form input[type="submit"]:active {
   background-color: #777553;
   box-shadow: 0 5px #666;
   transform: translateY(4px);

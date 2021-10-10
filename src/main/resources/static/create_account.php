@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOG IN PAGE</title>
+    <title>SIGN UP PAGE</title>
     <!-- adding login css-->
-    <link rel = "stylesheet" href="login_page_structure.css">
+    <link rel = "stylesheet" href="create_account.css">
 
 </head>
 <style>
@@ -19,40 +19,42 @@
     <link rel = "password_reset" href="password_reset.html">
     <link rel = "create account" href="create_account.html"> 
     <!-- login functionality-->
-    <div class= "log_in_class">
-        <section id = "log_in_content">    
-            <form method = "post" action= "login.php">
-            <h1> LOGIN PAGE </h1>
-            <!--error message for username -->
-            <?php if(isset($_GET['error'])){ ?>
+    <div class= "create_class">
+        <section id = "create_content">    
+            <form method = "post" action= "create_account_register.php">
+            <h1> SIGNUP PAGE </h1>
+             <!--error message for username taken -->
+             <?php if(isset($_GET['error'])){ ?>
                 <p class = "error"><?php echo $_GET['error']; ?></p>
             <?php } ?>
+
+            <div id = "create_name">
+                <input type = "text" placeholder= "name" require= "" id = "name" name = "name"/>
+            </div>
             <!-- UserName contents-->
-            <div id = "log_in_userName">
+            <div id = "create_userName">
                 <input type="text" placeholder="username" required = "" id="username" name = "username" />
             </div>
             <!-- password contents-->
-            <div id = "log_in_password">
+            <div id = "create_password">
                 <input type="text" placeholder="password" required= "" id="password" name = "password"/>
+            </div>
+
+            <!-- Re_password contents-->
+            <div id = "create_re_password">
+                <input type="text" placeholder="re_password" required= "" id="re_password" name = "re_password"/>
             </div>
             <!--submit button contents-->
             <div>
-                <input type= "submit" value="Log in" />
+                <input type= "submit" value="Sign Up" />
             </div>
-            
             <div>
-                <input type="checkbox" checked = "checked" name ="remember"> Remember Me
+                <a href = "login_page_structure.php"> Already have an account?</a>
             </div>
-            
-            <div>
-            <a href="password_reset.php">Forgot Password? </a>
 
-            <a href="create_account.php">Need account? </a>
-            </div>
+            
             </form>
         </section>
-    </div>
-
-    <script src="login_page_strucutre.js"></script>       
+    </div>     
 </body>
 </html>
