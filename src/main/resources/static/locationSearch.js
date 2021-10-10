@@ -16,5 +16,5 @@ var radiusVal = parseFloat(document.getElementById('searchRadius').value);
 
 mymap.setView([latitutdeVal + 0.00, longtitudeVal + 0.00], radiusVal + 0.00);
 marker = L.marker([latitutdeVal + 0.00, longtitudeVal + 0.00], L.Icon.Default).addTo(mymap);
-}
+}   
 

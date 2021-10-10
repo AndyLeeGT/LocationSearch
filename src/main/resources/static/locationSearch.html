@@ -24,7 +24,7 @@
         Longitude: <input type = "text" placeholder="optional" id = "longitude" name = "longitude"/>
         Search Radius: <input type = "text" placeholder="optional" id = "searchRadius" name = "searchRadius"><br>
 
-        
+
         <input type = "submit" value = "Find a Place!" id="radiusButton" onclick= "optionalSearch()"> <br>
         Search Results<br>
         <!--insert table and map below-->
@@ -39,10 +39,10 @@
         tiles.addTo(mapid);
     </script>
     
-
-
-    <div id = "logout"> 
-        <input type="submit" value = "Log out" id = "logoutButton">
+    <div id = "logout">
+        <form action = "index.html"> 
+           <input type="submit" value = "Log out" id = "logoutButton" />
+        </form>
     </div>
 
     <script src="locationSearch.js"></script>
