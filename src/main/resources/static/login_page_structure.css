@@ -1,48 +1,117 @@
-
+/*Reset all the functionality*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
 h1{
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: bold Arial, Helvetica, sans-serif;
+  font-size: 25px;  
+  color: #000;
 }
-
-form{
-    border:3px solid #938f8f;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+form:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
 }
-
 body{
-  height: 100%;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100% ),url(buzz_transparent.png);
+  /*font color*/
+  color: #000;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  font: arial;
 }
-
-input[type=text], input[type=password] {
-    width: 75%;
-    padding:10px 20px;
-    margin:5px 0;
-    display: inline-block;
-    box-sizing: border-box;
-    text-align: center;
-  }
-
-input[type=submit]{
-  background-color:#04AA6D;
-  border-radius: 25px;
-  cursor: pointer;
-  border: none;
-  width: 5%;
+.log_in_class{
+  margin: 30px auto; 
+  position: relative; 
+  width: 1000px;
+}
+#log_in_content{
+  margin: 0 auto;
+  padding: 25px;
+  position: relative;
   text-align: center;
-} 
-
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
+  width: 200px;
 }
-  
-  
 
+#log_in_content:after,
+#log_in_content:before {
+	background: #ffffff;
+	border: 1px solid #262829;
+	content: "";
+	display: block;
+	height: 100%;
+	left: -1px;
+	position: absolute;
+	width: 100%;
+}
+#log_in_content:after {
+	
+	transform: rotate(0deg);
+	top: 0;
+	z-index: -1;
+}
+#log_in_content:before {
+	transform: rotate(-2deg);
+	top: 0;
+	z-index: -2;
+}
+#log_in_content h1{
+  color: #7E7E7E;
+	font: bold 25px Helvetica, Arial, sans-serif;
+	letter-spacing: -0.05em;
+	line-height: 20px;
+	margin: 30px auto;
+}
+#log_in_content form div a {
+	color: #004a80;
+    float: right;
+    font-size: 12px;
+    margin: 30px 15px 0 0;
+    text-decoration: underline;
+}
+#log_in_content form input[type="submit"]{
+  padding: 10px 25px;
+  font-size: 12px;
+  margin: 5px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #cabe87;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 9px rgb(160, 159, 159);
+}
+#log_in_content form input[type="submit"]:hover{
+  background-color: #777553
+}
+#log_in_content form input[type="submit"]:active {
+  background-color: #777553;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 10px;
+  margin:5px 0;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+}
