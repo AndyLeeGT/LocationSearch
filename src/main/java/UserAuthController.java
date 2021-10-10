@@ -11,7 +11,7 @@ public class UserAuthController {
         try {
             authManager = new AuthManager();
         } catch (Exception e) {
-            System.out.println("[WARN]: AuthManager failed to fetch valid projectID for Datastore.");
+            System.out.println("[WARN]: " + e.getLocalizedMessage());
             authManager = null;
         }
     }

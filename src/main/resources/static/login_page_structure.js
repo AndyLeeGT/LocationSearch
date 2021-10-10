@@ -1,19 +1,21 @@
-var loginInput = document.getElementById("login_input");
-loginInput.onsubmit = function(){submitFunction()};
+$(document).ready(function() {
+    
+    $('submitbutton').click(function() {
 
-function submitFunction() {
-    $.ajax({
-        url: 'localhost:8080/users',
-        type: 'GET',
-        dataType: 'json',
-        data: {password: loginInput.getElementsById("password").val()},
-        timeout: 2500,
-        success: function(result){
-            console.log('Completed with success and data: ', result);
-        },
-        error: function(result){
-            console.log('Error with message: ', result);
-        }
+        $.ajax({
+            url: 'https://directed-post-326819.uc.r.appspot.com/users?username=' + $("username").val() + "&password=" 
+            + $("password").val(),
+            type: 'GET',
+            dataType: 'json',
+            timeout: 2500,
+            success: function(result){
+                console.log('Completed with success and data: ', result);
+            },
+            error: function(result){
+                console.log('Error with message: ', result);
+            }
+        });
+
     });
-}
+});
 

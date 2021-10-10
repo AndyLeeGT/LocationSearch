@@ -18,6 +18,9 @@
   "homepage": "https://github.com/AndyLeeGT/LocationSearch#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "joi": "^17.4.2"
+    "joi": "^17.4.2",
+    "jquery": "^3.6.0",
+    "jsdom": "^18.0.0",
+    "jsdon": "^0.1.15"
   }
 }
