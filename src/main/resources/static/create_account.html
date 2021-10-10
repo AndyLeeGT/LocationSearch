@@ -21,13 +21,8 @@
     <!-- login functionality-->
     <div class= "create_class">
         <section id = "create_content">    
-            <form method = "post" action= "create_account_register.php">
+            <form >
             <h1> SIGNUP PAGE </h1>
-             <!--error message for username taken -->
-             <?php if(isset($_GET['error'])){ ?>
-                <p class = "error"><?php echo $_GET['error']; ?></p>
-            <?php } ?>
-
             <div id = "create_name">
                 <input type = "text" placeholder= "name" require= "" id = "name" name = "name"/>
             </div>
@@ -49,7 +44,7 @@
                 <input type= "submit" value="Sign Up" />
             </div>
             <div>
-                <a href = "login_page_structure.php"> Already have an account?</a>
+                <a href = "login_page_structure.html"> Already have an account?</a>
             </div>
 
             

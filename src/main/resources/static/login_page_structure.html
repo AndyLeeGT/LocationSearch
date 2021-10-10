@@ -21,12 +21,8 @@
     <!-- login functionality-->
     <div class= "log_in_class">
         <section id = "log_in_content">    
-            <form method = "post" action= "login.php">
+            <form>
             <h1> LOGIN PAGE </h1>
-            <!--error message for username -->
-            <?php if(isset($_GET['error'])){ ?>
-                <p class = "error"><?php echo $_GET['error']; ?></p>
-            <?php } ?>
             <!-- UserName contents-->
             <div id = "log_in_userName">
                 <input type="text" placeholder="username" required = "" id="username" name = "username" />
@@ -45,9 +41,9 @@
             </div>
             
             <div>
-            <a href="password_reset.php">Forgot Password? </a>
+            <a href="password_reset.html">Forgot Password? </a>
 
-            <a href="create_account.php">Need account? </a>
+            <a href="create_account.html">Need account? </a>
             </div>
             </form>
         </section>
