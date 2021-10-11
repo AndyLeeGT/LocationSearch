@@ -1,5 +1,7 @@
 package main.java;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,8 +23,34 @@ public class UserAuthController {
         return authManager.signUp(username, password);
     }
 
-    @GetMapping("/users")
-    public boolean validateUser(@RequestParam(value = "username") String username, @RequestBody String password ) {
-        return authManager.signIn(username, password);
+    @PostMapping("/users")
+    public ResponseEntity<String> validateUser(@RequestBody LoginForm form) {
+        try {
+            boolean success = authManager.signIn(form.getUsername(), form.getPassword());
+            return ResponseEntity.ok("success");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Failed to validate user");
+        }
+    }
+}
+
+class LoginForm {
+    private String username;
+    private String password;
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

@@ -1,8 +1,10 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HotModuleReplacementPlugin = require('react-hot-loader');
 
 module.exports = {
-    entry: './src/index.js',
+    mode: 'development',
+    // entry: './src/lib/index.js',
+    entry: ['react-hot-loader/patch', './src/lib/index.js'],
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, 'dist'),
@@ -10,11 +12,12 @@ module.exports = {
     resolve: {
         extensions: ['*', '.js', '.jsx'],
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-          title: 'Output Management',
-        }),
-      ],
+    // plugins: [
+    //     new HtmlWebpackPlugin({
+    //       title: 'Output Management',
+    //     }),
+    //   ],
+    // plugins: [HotModuleReplacementPlugin()],
     module: {
       rules: [
         {

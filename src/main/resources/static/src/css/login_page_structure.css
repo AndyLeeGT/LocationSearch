@@ -21,7 +21,7 @@ h1{
   font-size: 25px;  
   color: #000;
 }
-form:after {
+:after {
 	content: ".";
 	display: block;
 	height: 0;
@@ -29,7 +29,7 @@ form:after {
 	visibility: hidden;
 }
 body{
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100% ),url(buzz_transparent.png);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100% ),url('../resources/buzz_transparent.png');
   /*font color*/
   color: #000;
   margin: 0 auto;
@@ -79,14 +79,14 @@ body{
 	line-height: 20px;
 	margin: 30px auto;
 }
-#log_in_content form div a {
+#log_in_content div a {
 	color: #004a80;
     float: right;
     font-size: 12px;
     margin: 30px 15px 0 0;
     text-decoration: underline;
 }
-#log_in_content form input[type="submit"]{
+#submitbutton {
   padding: 10px 25px;
   font-size: 12px;
   margin: 5px;
@@ -99,10 +99,10 @@ body{
   border-radius: 30px;
   box-shadow: 0 9px rgb(160, 159, 159);
 }
-#log_in_content form input[type="submit"]:hover{
+#submitbutton:hover{
   background-color: #777553
 }
-#log_in_content form input[type="submit"]:active {
+#submitbutton:active {
   background-color: #777553;
   box-shadow: 0 5px #666;
   transform: translateY(4px);

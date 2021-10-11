@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx babel src/js --out-dir src/lib --presets=@babel/preset-env,@babel/preset-react & npx webpack --config webpack.config.js",
+    "start": "webpack-dev-server --hot"
   },
   "keywords": [],
   "author": "",
@@ -14,8 +16,18 @@
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
     "css-loader": "^6.4.0",
     "html-webpack-plugin": "^5.3.2",
-    "style-loader": "^3.3.0"
+    "react-hot-loader": "^4.13.0",
+    "style-loader": "^3.3.0",
+    "webpack-cli": "^4.9.0",
+    "webpack-dev-server": "^4.3.1"
+  },
+  "dependencies": {
+    "axios": "^0.22.0",
+    "jQuery": "^1.7.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }

@@ -17,7 +17,6 @@
 //                 console.log('Error with message: ', result);
 //             }
 //         });
-
 //     });
 // });
-
+"use strict";
