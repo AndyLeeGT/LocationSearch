@@ -6,7 +6,7 @@ import java.util.Base64;
 
 interface AuthManagerInterface {
     boolean signIn(String email, String password) throws AuthException;
-    boolean signUp(String email, String password);
+    boolean signUp(String email, String password) throws AuthException;
 }
 
 public class AuthManager implements AuthManagerInterface {
@@ -29,8 +29,13 @@ public class AuthManager implements AuthManagerInterface {
     }
 
     @Override
-    public boolean signUp(String email, String password) {
+    public boolean signUp(String email, String password) throws AuthException {
         PasswordParams params = Security.createPassword(password);
+
+        Entity userEntity = db.get(keyFactory.newKey(email));
+        if (userEntity != null) {
+            throw new AuthException("User already exists. Cannot create new user.");
+        }
 
         // Store to GDS
         Key key = keyFactory.newKey(email);

@@ -12,7 +12,7 @@ function optionalSearch(){
     var latitutdeVal = parseFloat(document.getElementById('latitude').value);
     var longtitudeVal = parseFloat(document.getElementById('longitude').value);
     var radiusVal = parseFloat(document.getElementById('searchRadius').value);
-    axios.get(`http://localhost:8080/places?lat=${latitutdeVal}&lon=${longtitudeVal}`)
+    axios.get(`https://directed-post-326819.uc.r.appspot.com/places?lat=${latitutdeVal}&lon=${longtitudeVal}`)
         .then(values => {
                 const places = values.data 
                 const data = places.map(place => { 

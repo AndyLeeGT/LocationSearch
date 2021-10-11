@@ -18,15 +18,28 @@ public class UserAuthController {
     }
 
     @PutMapping("/users")
-    public boolean putNewUser(@RequestParam(value = "username") String username, @RequestBody String password ) {
-        return authManager.signUp(username, password);
+    public ResponseEntity<String> putNewUser(@RequestBody LoginForm form ) {
+        try {
+            boolean success = authManager.signUp(form.getUsername(), form.getPassword());
+            if (success) {
+                return ResponseEntity.ok("success");
+            } else {
+                return ResponseEntity.badRequest().body("Failed to create user");
+            }
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Failed to create user, user already exists.");
+        }
     }
 
     @PostMapping("/users")
     public ResponseEntity<String> validateUser(@RequestBody LoginForm form) {
         try {
             boolean success = authManager.signIn(form.getUsername(), form.getPassword());
-            return ResponseEntity.ok("success");
+            if (success) {
+                return ResponseEntity.ok("success");
+            } else {
+                return ResponseEntity.badRequest().body("Failed to validate password");
+            }
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Failed to validate user");
         }
