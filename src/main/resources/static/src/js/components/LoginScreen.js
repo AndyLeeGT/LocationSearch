@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
 import axios from "axios"
+import {
+    useHistory,
+    useLocation
+} from "react-router-dom";
 
 import "../../css/login_page_structure.css"
 
-const LoginScreen = () => { 
+const LoginScreen = ({ auth }) => { 
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
+
+    let history = useHistory();
+    let location = useLocation();
+
+    let { from } = location.state || { from: { pathname: "/" } };
 
     const activateLasers = (e) => { 
         e.preventDefault();
         axios.post("http://localhost:8080/users",{ "username": name, "password": password})
-        .then(val => console.log(val))
+        .then(val => history.replace(from))
         .catch(err => console.log(err))
     }
     return <div className= "log_in_class" style={{}}>

@@ -11,6 +11,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _axios = _interopRequireDefault(require("axios"));
 
+var _reactRouterDom = require("react-router-dom");
+
 require("../../css/login_page_structure.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -31,7 +33,9 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var LoginScreen = function LoginScreen() {
+var LoginScreen = function LoginScreen(_ref) {
+  var auth = _ref.auth;
+
   var _useState = (0, _react.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
       name = _useState2[0],
@@ -42,6 +46,16 @@ var LoginScreen = function LoginScreen() {
       password = _useState4[0],
       setPassword = _useState4[1];
 
+  var history = (0, _reactRouterDom.useHistory)();
+  var location = (0, _reactRouterDom.useLocation)();
+
+  var _ref2 = location.state || {
+    from: {
+      pathname: "/"
+    }
+  },
+      from = _ref2.from;
+
   var activateLasers = function activateLasers(e) {
     e.preventDefault();
 
@@ -49,7 +63,7 @@ var LoginScreen = function LoginScreen() {
       "username": name,
       "password": password
     }).then(function (val) {
-      return console.log(val);
+      return history.replace(from);
     })["catch"](function (err) {
       return console.log(err);
     });
