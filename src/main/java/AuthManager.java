@@ -5,7 +5,7 @@ import com.google.cloud.datastore.*;
 import java.util.Base64;
 
 interface AuthManagerInterface {
-    boolean signIn(String email, String password);
+    boolean signIn(String email, String password) throws AuthException;
     boolean signUp(String email, String password);
 }
 
@@ -19,7 +19,7 @@ public class AuthManager implements AuthManagerInterface {
     }
 
     @Override
-    public boolean signIn(String email, String password) {
+    public boolean signIn(String email, String password) throws AuthException {
         PasswordParams params = fetchPasswordParams(email);
         if (params == null) {
             return false;
