@@ -37,8 +37,8 @@ public class InterestingPlacesController {
             System.out.println(e.getLocalizedMessage());
         }
 
-        List<InterestingPlace> interestingPlaces = places.stream().map(place -> {
-            return new InterestingPlace(place.getName(), place.getRating());
+        List<InterestingPlace> interestingPlaces = places.stream().filter(place -> place.getRating() > 4).map(place -> {
+            return new InterestingPlace(place.getGeometry(), place.getUrl(), place.getName(), place.getRating());
         }).collect(Collectors.toList());
 
         return interestingPlaces;

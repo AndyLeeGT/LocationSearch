@@ -1,14 +1,18 @@
 package main.java;
 
 public class InterestingPlace {
-    public String getName() {
-        return name;
-    }
-
-    public InterestingPlace(String name, float rating) {
+    public InterestingPlace(Geometry geometry, String url, String name, float rating) {
+        this.geometry = geometry;
+        this.url = url;
         this.name = name;
         this.rating = rating;
     }
+
+    public String getName() {
+        return name;
+    }
+    public Geometry geometry;
+    public String url;
 
     public void setName(String name) {
         this.name = name;

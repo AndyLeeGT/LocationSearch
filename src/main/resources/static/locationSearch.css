@@ -28,7 +28,7 @@ h1{
     font-family: bold Arial, Helvetica, sans-serif;
     font-size: 15px;  
     color: #000;
-    background-image: url(buzz_transparent.png);
+    /* background-image: url(buzz_transparent.png); */
     /*move image back to map or table*/
     z-index: -2;
 

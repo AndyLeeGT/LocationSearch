@@ -4,20 +4,11 @@ $(document).ready(function() {
         var username = $("#username").val();
         var password = $("#password").val();
         var JSONdata = { "password": password };
-        $.ajax({
-            url: 'https://directed-post-326819.uc.r.appspot.com/users?username=' + username,
-            type: 'PUT',
-            contentType: 'application/json',
-            dataType: 'json',
-            data: JSONdata,
-            timeout: 2500,
-            success: function(result){
-                console.log('Completed with success and data: ', result);
-            },
-            error: function(result){
-                console.log('Error with message: ', result);
-            }
-        });
+        axios.put("http://localhost:8080/users?username=" + username, JSONdata)
+            .then(
+                window.location = "/locationSearch.html"
+            )
+            .catch(err => console.log(err))
 
     });
 });

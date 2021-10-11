@@ -12,23 +12,33 @@
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin=""/>
 
+    <link
+    href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
+    rel="stylesheet"
+    />
+
      <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
      crossorigin=""></script>
+    
 </head>
 <body>
     <h1> Select a Search Area</h1>
-    <div>
-        Latitude: <input type = "text" placeholder="optional" id = "latitude" name = "latitude"/>
-        Longitude: <input type = "text" placeholder="optional" id = "longitude" name = "longitude"/>
-        Search Radius: <input type = "text" placeholder="optional" id = "searchRadius" name = "searchRadius"><br>
-
-
-        <input type = "submit" value = "Find a Place!" id="radiusButton" onclick= "optionalSearch()"> <br>
-        Search Results<br>
-        <!--insert table and map below-->
-        <!--some code here--> 
+    <div style="position: flex; flex-direction: column;">
+        <div>
+            Latitude: <input type = "text" placeholder="optional" id = "latitude" name = "latitude"/>
+            Longitude: <input type = "text" placeholder="optional" id = "longitude" name = "longitude"/>
+            Search Radius: <input type = "text" placeholder="optional" id = "searchRadius" name = "searchRadius"><br>
+    
+    
+            <input type = "submit" value = "Find a Place!" id="radiusButton" onclick= "optionalSearch()"> <br>
+            Search Results<br>
+            <!--insert table and map below-->
+            <!--some code here--> 
+        </div>
+        <div id="table"></div>
     </div>
 
     <div id="mapid"></div>
@@ -44,7 +54,7 @@
            <input type="submit" value = "Log out" id = "logoutButton" />
         </form>
     </div>
-
+    <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
     <script src="locationSearch.js"></script>
 </body>
 </html>
