@@ -30,7 +30,7 @@ function optionalSearch(){
                 })
                 markerGroup.clearLayers()
                 const markers = places.forEach(place => { 
-                    L.marker([place.geometry.location.lat, place.geometry.location.lng]).addTo(markerGroup)
+                    L.marker([place.geometry.location.lat, place.geometry.location.lng]).addTo(markerGroup).bindPopup(place.name);
                 })
                 grid.updateConfig({
                     data: data
