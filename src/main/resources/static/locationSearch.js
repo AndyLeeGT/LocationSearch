@@ -22,7 +22,7 @@ function optionalSearch(){
     var radiusVal = parseFloat(document.getElementById('searchRadius').value);
     if(!radiusVal) 
         radiusVal = 1000
-    axios.get(`http://localhost:8080/places?lat=${latitutdeVal}&lon=${longtitudeVal}&radius=${radiusVal}`, { crossDomain: true })
+    axios.get(`https://directed-post-326819.uc.r.appspot.com/places?lat=${latitutdeVal}&lon=${longtitudeVal}&radius=${radiusVal}`, { crossDomain: true })
         .then(values => {
                 const places = values.data 
                 const data = places.map(place => { 
