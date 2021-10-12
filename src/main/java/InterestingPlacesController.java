@@ -21,7 +21,7 @@ public class InterestingPlacesController {
 
     @GetMapping("/places")
     public List<InterestingPlace> findPlaces(@RequestParam(value = "lat") String lat, @RequestParam(value = "lon") String lon
-            , @RequestParam(value = "radius") int radius) {
+            , @RequestParam(value = "radius", defaultValue = "1000", required = false) int radius) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://maps.googleapis.com/")
                 .addConverterFactory(GsonConverterFactory.create())

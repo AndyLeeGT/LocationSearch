@@ -20,6 +20,8 @@ function optionalSearch(){
     var latitutdeVal = parseFloat(document.getElementById('latitude').value);
     var longtitudeVal = parseFloat(document.getElementById('longitude').value);
     var radiusVal = parseFloat(document.getElementById('searchRadius').value);
+    if(!radiusVal) 
+        radiusVal = 1000
     axios.get(`http://localhost:8080/places?lat=${latitutdeVal}&lon=${longtitudeVal}&radius=${radiusVal}`, { crossDomain: true })
         .then(values => {
                 const places = values.data 
