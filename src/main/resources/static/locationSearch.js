@@ -29,6 +29,7 @@ function optionalSearch(){
                     return [place.name, place.rating]
                 })
                 markerGroup.clearLayers()
+                L.marker([latitutdeVal, longtitudeVal]).addTo(markerGroup).bindPopup(latitutdeVal + ', ' + longtitudeVal);
                 const markers = places.forEach(place => { 
                     L.marker([place.geometry.location.lat, place.geometry.location.lng]).addTo(markerGroup).bindPopup(place.name);
                 })
