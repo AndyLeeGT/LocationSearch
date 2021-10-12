@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    
-    $('#signupbutton').click(function() {
+    $('#signupbutton').click(event => {
+        event.preventDefault()
         var username = $("#username").val();
         var password = $("#password").val();
         var JSONdata = { username: username, password: password };
