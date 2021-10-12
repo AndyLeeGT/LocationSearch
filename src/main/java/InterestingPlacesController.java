@@ -20,14 +20,15 @@ public class InterestingPlacesController {
 //    }
 
     @GetMapping("/places")
-    public List<InterestingPlace> findPlaces(@RequestParam(value = "lat") String lat, @RequestParam(value = "lon") String lon) {
+    public List<InterestingPlace> findPlaces(@RequestParam(value = "lat") String lat, @RequestParam(value = "lon") String lon
+            , @RequestParam(value = "radius") int radius) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://maps.googleapis.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         GooglePlacesService service = retrofit.create(GooglePlacesService.class);
         String location = lat + "," + lon;
-        Call<GPResponse> res = service.listPlaces(location, 1500, "AIzaSyDi-6IpTsT-uQn85CCDJ_cYvNwkmiZ_f3Y");
+        Call<GPResponse> res = service.listPlaces(location, radius, "AIzaSyDi-6IpTsT-uQn85CCDJ_cYvNwkmiZ_f3Y");
         System.out.println(res.request().url());
         List<Place> places = null;
         try {
